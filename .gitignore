@@ -1,1 +1,93 @@
-node_modules
+# ==============================================================================
+# Gitignore configuration for LLD C++ & TypeScript projects
+# Target: Prevent exposing local compiler versions, IDE setups, and built binaries
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Compiled Binaries & Executables
+# (Prevents leaking binary metadata, CPU architecture, and compiler signatures)
+# ------------------------------------------------------------------------------
+# Ignore compiled binaries with no extension (standard C++ compile output on macOS/Linux)
+# Matches files in subdirectories that do not contain a dot (extension)
+*
+!*/
+!*.*
+# Exceptions for common extensionless files we WANT to track
+!LICENSE
+!README
+!Makefile
+
+# Windows executables
+*.exe
+*.exe.recipe
+
+# ------------------------------------------------------------------------------
+# 2. C/C++ Compiler / Build Artifacts
+# ------------------------------------------------------------------------------
+# Object files
+*.o
+*.obj
+*.ko
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries (Static and Dynamic)
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+
+# Debug symbols and crash reports
+*.dSYM/
+*.pdb
+*.ilk
+*.exp
+*.map
+
+# ------------------------------------------------------------------------------
+# 3. Build Systems & Directories
+# ------------------------------------------------------------------------------
+# General build directories
+[Bb]uild/
+[Bb]in/
+[Oo]ut/
+
+# CMake outputs
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# ------------------------------------------------------------------------------
+# 4. IDEs & Editors (Crucial: Prevents leaking local compiler paths/versions)
+# ------------------------------------------------------------------------------
+# VS Code (c_cpp_properties.json leaks exact compiler path, standard version, and system headers)
+.vscode/
+
+# JetBrains CLion / IntelliJ
+.idea/
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+
+# Editor swap files
+*.swp
+*~
+
+# ------------------------------------------------------------------------------
+# 5. OS & Node.js Artifacts (for TypeScript/JS learnings)
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
